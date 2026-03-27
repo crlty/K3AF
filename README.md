@@ -1,6 +1,6 @@
-# K3 App Framework
+# App Framework
 
-Das K3AF ist ein kleines Modul-Framework für **Knuddels UserApps**, das deine App in klar getrennte Module aufteilt.
+Das AF ist ein kleines Modul-Framework für **Knuddels UserApps**, das deine App in klar getrennte Module aufteilt.
 
 - Module laden und registrieren
 - Hooks automatisch an aktive Module binden
@@ -8,9 +8,9 @@ Das K3AF ist ein kleines Modul-Framework für **Knuddels UserApps**, das deine A
 - modulbezogene Persistenz kapseln
 - optionale Hot-Reloads im Testsystem ermöglichen
 
-## Warum K3AF?
+## Warum ein AF?
 
-Bei größeren UserApps wird eine einzige `main.js` schnell unübersichtlich. K3AF trennt alles sauber:
+Bei größeren UserApps wird eine einzige `main.js` schnell unübersichtlich. Das AF trennt alles sauber:
 
 - **ein Modul pro Funktion**
 - **ein zentraler Modulmanager**
@@ -19,9 +19,9 @@ Bei größeren UserApps wird eine einzige `main.js` schnell unübersichtlich. K3
 
 Damit kannst du Funktionen wie Topic-Verwaltung, Rechte-Logik, Auswertungen oder Admin-Tools getrennt entwickeln und unabhängig aktivieren.
 
-## Philosophie des K3AF
+## Philosophie des AF
 
-Die Idee des K3AF ist es, Entwicklern ein kompaktes und funktionales Modulsystem an die Hand zu geben und nur noch Module dafür entwickeln zu müssen.
+Die Idee des AF ist es, Entwicklern ein kompaktes und funktionales Modulsystem an die Hand zu geben und nur noch Module dafür entwickeln zu müssen.
 
 ## Projektstruktur
 
@@ -102,7 +102,7 @@ Er verwaltet:
 
 ## Wie Hooks funktionieren
 
-K3AF erkennt Hooks **über ihre Methodennamen**.
+Das AF erkennt Hooks **über ihre Methodennamen**.
 
 ### Methoden mit `on...`
 Werden als normale App-Hooks behandelt, z. B.:
@@ -122,7 +122,7 @@ MyModule.mayShowPublicMessage = function (publicMessage) {
 };
 ```
 
-Für `mayShowPublicMessage` und `mayShowPublicActionMessage` verknüpft K3AF die Rückgaben aller aktiven Module logisch mit **UND**. Sobald ein Modul `false` liefert, wird die Nachricht blockiert.
+Für `mayShowPublicMessage` und `mayShowPublicActionMessage` verknüpft das AF die Rückgaben aller aktiven Module logisch mit **UND**. Sobald ein Modul `false` liefert, wird die Nachricht blockiert.
 
 ### Methoden mit `cmd...`
 Werden automatisch als Chatbefehl registriert.
@@ -159,7 +159,7 @@ Aktive Module werden nach `priority` sortiert. Kleinere Zahlen laufen zuerst.
 Wenn `visible = false` gesetzt ist, taucht das Modul nicht in der normalen Admin-Übersicht auf. App-Developer können es weiterhin sehen.
 
 ### `_blockedModules`
-Damit lassen sich Konflikte zwischen Modulen definieren. Beim Aktivieren prüft K3AF dann, ob ein inkompatibles Modul schon aktiv ist.
+Damit lassen sich Konflikte zwischen Modulen definieren. Beim Aktivieren prüft das AF dann, ob ein inkompatibles Modul schon aktiv ist.
 
 ## Beispielmodul
 
@@ -217,7 +217,7 @@ Verwaltet alle Module, baut Hooks und Commands auf und zeigt Framework-Managern 
 Nützlicher Befehl:
 
 ```text
-/k3afmodules
+/afmodules
 ```
 
 Damit können berechtigte Nutzer Module sehen sowie aktivieren oder deaktivieren.
@@ -240,7 +240,7 @@ Gedacht für Entwicklung und schnelles Nachladen während Tests.
 ### `ChannelAdmin`
 Verwaltet **appinterne Zusatzrechte**.
 
-Wichtig: Im K3AF werden **keine echten Knuddels-Rechte überschrieben**. `ChannelAdmin` ergänzt nur die eigene Framework-Logik.
+Wichtig: Im AF werden **keine echten Knuddels-Rechte überschrieben**. `ChannelAdmin` ergänzt nur die eigene Framework-Logik.
 
 Das Modul bietet Hilfsfunktionen wie:
 
@@ -307,12 +307,12 @@ Die Berechtigungsprüfung orientiert sich an echten Channelrechten plus den appi
 
 ## Hilfsfunktionen in `Utils.js`
 
-Das K3AF verzichtet auf globale Extensions. Stattdessen gibt es bewusst nur eine kleine Hilfssammlung:
+Das AF verzichtet auf globale Extensions. Stattdessen gibt es bewusst nur eine kleine Hilfssammlung:
 
-- `K3AF.Utils.format(str, values)`
-- `K3AF.Utils.getRecursivePropertyNames(obj)`
-- `K3AF.Utils.getUserByNickname(nickname)`
-- `K3AF.Utils.removeComments(str)`
+- `AF.Utils.format(str, values)`
+- `AF.Utils.getRecursivePropertyNames(obj)`
+- `AF.Utils.getUserByNickname(nickname)`
+- `AF.Utils.removeComments(str)`
 
 Diese Funktionen sind nur interne Helfer und ersetzen NICHT die offizielle UserApps-API.
 
@@ -341,7 +341,7 @@ Für den Live Betrieb ist AutoUpdate normalerweise nicht nötig.
 
 ## Für wen ist das K3AF gedacht?
 
-Das K3AF ist sinnvoll, wenn du:
+Das AF ist sinnvoll, wenn du:
 
 - deine UserApp modular strukturieren willst
 - möglichst nah an der offiziellen Knuddels-API bleiben willst
@@ -350,6 +350,6 @@ Das K3AF ist sinnvoll, wenn du:
 
 ## Kurz gesagt
 
-Das K3AF ist **kein Ersatz oder eine Erweiterung für die UserApps-API**, sondern ein organisatorischer Layer darüber.
+Das AF ist **kein Ersatz oder eine Erweiterung für die UserApps-API**, sondern ein organisatorischer Layer darüber.
 
-Die UserApps-API liefert die Plattformfunktionen. K3AF liefert die modulare Struktur.
+Die UserApps-API liefert die Plattformfunktionen. Das AF liefert die modulare Struktur.
