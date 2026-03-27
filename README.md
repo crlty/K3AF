@@ -56,7 +56,7 @@ KnuddelsServer.execute('includes/init.js');
 ```
 
 ### `includes/init.js`
-`init.js` lädt die Kernklassen und dann alle Module. Danach ruft K3AF einmal `refreshHooks()` auf, damit alle Hooks und Commands in `App[...]` und `App.chatCommands[...]` registriert werden.
+`init.js` lädt die Kernklassen und dann alle Module. Danach ruft AF einmal `refreshHooks()` auf, damit alle Hooks und Commands in `App[...]` und `App.chatCommands[...]` registriert werden.
 
 ## Kernbestandteile
 
@@ -89,7 +89,7 @@ ChannelAdmin_Owner
 Das verhindert Kollisionen zwischen Modulen.
 
 ### `ModuleManager`
-Der `ModuleManager` ist das Herzstück vom K3AF.
+Der `ModuleManager` ist das Herzstück vom AF.
 
 Er verwaltet:
 
@@ -339,7 +339,7 @@ Lege Daten immer über `this.getPersistence()` ab, nicht mit globalen Schlüssel
 ### 5. AutoUpdate nur für Entwicklung nutzen
 Für den Live Betrieb ist AutoUpdate normalerweise nicht nötig.
 
-## Für wen ist das K3AF gedacht?
+## Für wen ist das AF gedacht?
 
 Das AF ist sinnvoll, wenn du:
 
